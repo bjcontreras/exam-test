@@ -1,0 +1,32 @@
+# ----------------------------------------------
+# APP General Configuration
+# ----------------------------------------------
+spring:
+  application:
+    name: exam-test
+  protocol: 'http'
+  profiles:
+    active: local
+info:
+  project-version: 1.0.0
+  build-timestamp: ${maven.build.timestamp}
+controller:
+  properties:
+    base-path: /jav-bre/exam-test
+
+# ----------------------------------------------
+# OPENAPI for documentation
+# ----------------------------------------------
+springdoc:
+  swagger-ui:
+    use-root-path: true
+  properties:
+    developer-name: 'JavBre Tech'
+    project-name: exam-test
+    project-short-description: Microservicio para presentacion de examen por estudiante
+    organization-url: https://github.com/bjcontreras/exam-test
+  openapi:
+    dev-url: ${spring.protocol}://${springdoc.server.address}:${springdoc.server.port}
+
+
+

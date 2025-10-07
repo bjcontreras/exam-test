@@ -1,0 +1,52 @@
+{
+  "groups": [
+    {
+      "name": "springdoc.properties",
+      "type": "com.javbre.config.OpenApiProperties",
+      "sourceType": "com.javbre.config.OpenApiProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "springdoc.properties.developer-name",
+      "type": "java.lang.String",
+      "sourceType": "com.javbre.config.OpenApiProperties"
+    },
+    {
+      "name": "springdoc.properties.organization-url",
+      "type": "java.lang.String",
+      "sourceType": "com.javbre.config.OpenApiProperties"
+    },
+    {
+      "name": "springdoc.properties.project-licence-link",
+      "type": "java.lang.String",
+      "sourceType": "com.javbre.config.OpenApiProperties"
+    },
+    {
+      "name": "springdoc.properties.project-licence-msg",
+      "type": "java.lang.String",
+      "sourceType": "com.javbre.config.OpenApiProperties"
+    },
+    {
+      "name": "springdoc.properties.project-name",
+      "type": "java.lang.String",
+      "sourceType": "com.javbre.config.OpenApiProperties"
+    },
+    {
+      "name": "springdoc.properties.project-short-description",
+      "type": "java.lang.String",
+      "sourceType": "com.javbre.config.OpenApiProperties"
+    },
+    {
+      "name": "springdoc.properties.project-tos-link",
+      "type": "java.lang.String",
+      "sourceType": "com.javbre.config.OpenApiProperties"
+    },
+    {
+      "name": "springdoc.properties.project-tos-msg",
+      "type": "java.lang.String",
+      "sourceType": "com.javbre.config.OpenApiProperties"
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,39 @@
+# ----------------------------------------------
+# APP General Configuration
+# ----------------------------------------------
+springdoc:
+  server:
+    address: localhost
+    port: 8080
+server:
+  port: 8080
+logging:
+  level:
+    org:
+      springframework:
+        security:
+          web.*: off
+
+# ----------------------------------------------
+# DATABASE Configuration
+# ----------------------------------------------
+spring:
+  sql:
+    init:
+      platform: 'postgres'
+      mode: always
+      schema-locations: classpath:data/schema-dev.sql
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bjtechdb
+    username: postgres
+    password: admin
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 1
+      idleTimeout: 30000
+      maxLifetime: 600000
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect

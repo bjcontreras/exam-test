@@ -1,0 +1,32 @@
+# ----------------------------------------------
+# APP General Configuration
+# ----------------------------------------------
+spring:
+  application:
+    name: @project.name@
+  protocol: 'http'
+  profiles:
+    active: local
+info:
+  project-version: @project.version@
+  build-timestamp: ${maven.build.timestamp}
+controller:
+  properties:
+    base-path: /jav-bre/@project.name@
+
+# ----------------------------------------------
+# OPENAPI for documentation
+# ----------------------------------------------
+springdoc:
+  swagger-ui:
+    use-root-path: true
+  properties:
+    developer-name: 'Breiner Javier Contreras Romero'
+    project-name: @project.name@
+    project-short-description: @project.description@
+    organization-url: https://github.com/bjcontreras/exam-test
+  openapi:
+    dev-url: ${spring.protocol}://${springdoc.server.address}:${springdoc.server.port}
+
+
+

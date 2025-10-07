@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "87c93ffc-2b54-4a53-86cb-6ce5725d9703",
+		"name": "PruebaFonyou",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21140701"
+	},
+	"item": [
+		{
+			"name": "CrearExamen",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Examen de conocimiento basico\",\r\n    \"preguntas\": [\r\n        {\r\n            \"enunciado\": \"Cuanto es 1+1?\",\r\n            \"opcion\": [\r\n                {\r\n                    \"letra\": \"A\",\r\n                    \"valor\": \"1\",\r\n                    \"opcionCorrecta\": false\r\n                },\r\n                {\r\n                    \"letra\": \"B\",\r\n                    \"valor\": \"3\",\r\n                    \"opcionCorrecta\": false\r\n                },\r\n                {\r\n                    \"letra\": \"C\",\r\n                    \"valor\": \"2\",\r\n                    \"opcionCorrecta\": true\r\n                },\r\n                {\r\n                    \"letra\": \"D\",\r\n                    \"valor\": \"5\",\r\n                    \"opcionCorrecta\": false\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"enunciado\": \"Cuanto es 5x2+3?\",\r\n            \"opcion\": [\r\n                {\r\n                    \"letra\": \"A\",\r\n                    \"valor\": \"20\",\r\n                    \"opcionCorrecta\": false\r\n                },\r\n                {\r\n                    \"letra\": \"B\",\r\n                    \"valor\": \"13\",\r\n                    \"opcionCorrecta\": true\r\n                },\r\n                {\r\n                    \"letra\": \"C\",\r\n                    \"valor\": \"15\",\r\n                    \"opcionCorrecta\": true\r\n                },\r\n                {\r\n                    \"letra\": \"D\",\r\n                    \"valor\": \"20\",\r\n                    \"opcionCorrecta\": false\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/service/crearExamen",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"service",
+						"crearExamen"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearEstudiante",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Breiner\",\r\n    \"edad\": \"24\",\r\n    \"ciudad\": \"bogota\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/service/crearEstudiante",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"service",
+						"crearEstudiante"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AsignacionFecha",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Breiner\",\r\n    \"edad\": \"24\",\r\n    \"ciudad\": \"bogota\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/service/crearEstudiante",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"service",
+						"crearEstudiante"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EnvioRespuesta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idEstudiante\": 1,\r\n    \"idExamen\": 1,\r\n    \"respuestas\": [\r\n        {\r\n            \"idPregunta\": 1,\r\n            \"respuesta\": \"B\"\r\n        },\r\n        {\r\n            \"idPregunta\": 2,\r\n            \"respuesta\": \"B\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/service/envioRespuesta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"service",
+						"envioRespuesta"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
