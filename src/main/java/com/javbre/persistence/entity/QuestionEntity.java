@@ -18,7 +18,8 @@ public class QuestionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "exam_id", nullable = false)
     private ExamEntity exam;
 
     @Column(columnDefinition = "text")
@@ -31,5 +32,6 @@ public class QuestionEntity {
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OptionChoiceEntity> options = new ArrayList<>();
+
 
 }

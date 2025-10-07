@@ -1,5 +1,7 @@
 package com.javbre.utilities;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -7,7 +9,20 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
+import static com.javbre.utilities.HeadersUtilities.DATE_FORMAT;
+
 public class Utilities {
+
+    public static boolean timestampsIsValid(String dateStr) {
+        var sdf = new SimpleDateFormat(DATE_FORMAT);
+        sdf.setLenient(false);
+        try {
+            sdf.parse(dateStr);
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
+    }
 
     public static String getTimestampValue() {
         var zoneIdCo = ZoneId.of("America/Bogota");

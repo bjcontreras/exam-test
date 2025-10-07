@@ -16,7 +16,7 @@ public class CorsFilter extends GenericFilterBean {
       throws IOException, ServletException {
     HttpServletResponse httpServletResponse = (HttpServletResponse) response;
     httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
-    httpServletResponse.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    httpServletResponse.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     httpServletResponse.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
 
     chain.doFilter(request, response);

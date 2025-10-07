@@ -15,13 +15,14 @@ public class StudentService {
     }
 
     @Transactional
-    public StudentEntity createStudent(StudentCreateRequest req) {
+    public String createStudent(StudentCreateRequest req) {
         StudentEntity student = new StudentEntity();
         student.setName(req.getName());
         student.setAge(req.getAge());
         student.setCity(req.getCity());
         student.setTimezone(req.getTimezone());
-        return studentRepository.save(student);
+        studentRepository.save(student);
+        return "Estudiante creado con éxito";
     }
 }
 

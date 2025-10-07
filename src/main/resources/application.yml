@@ -22,9 +22,13 @@ springdoc:
     use-root-path: true
   properties:
     developer-name: 'Breiner Javier Contreras Romero'
+    organization-url: 'https://github.com/bjcontreras/exam-test'
+    project-licence-link: 'https://github.com/bjcontreras/exam-test'
+    project-licence-msg: 'https://github.com/bjcontreras/exam-test'
     project-name: @project.name@
     project-short-description: @project.description@
-    organization-url: https://github.com/bjcontreras/exam-test
+    project-tos-link: 'https://github.com/bjcontreras/exam-test'
+    project-tos-msg: 'https://github.com/bjcontreras/exam-test'
   openapi:
     dev-url: ${spring.protocol}://${springdoc.server.address}:${springdoc.server.port}
 

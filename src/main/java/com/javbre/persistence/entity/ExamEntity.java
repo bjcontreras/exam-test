@@ -27,6 +27,5 @@ public class ExamEntity {
     @OneToMany(mappedBy = "exam", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<QuestionEntity> questions = new ArrayList<>();
 
-
 }
 

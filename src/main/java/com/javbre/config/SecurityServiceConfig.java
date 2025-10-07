@@ -1,5 +1,6 @@
 package com.javbre.config;
 
+//import com.javbre.config.filter.CorsFilter;
 import com.javbre.config.filter.CorsFilter;
 import com.javbre.config.filter.CspNonceFilter;
 import com.javbre.config.filter.SecurityHeadersFilter;
@@ -55,7 +56,9 @@ public class SecurityServiceConfig implements WebMvcConfigurer {
                         .requestMatchers("/swagger-ui.html").permitAll()
                         .requestMatchers("/swagger-ui/**").permitAll()
                         .requestMatchers("/v3/api-docs/**").permitAll()
+                        .requestMatchers("/webjars/**").permitAll()
                         .requestMatchers("/api-docs/**").permitAll()
+                        .requestMatchers("/actuator/**").permitAll()
 
                         // METRIC
                         .requestMatchers("/actuator/**").permitAll()
@@ -64,6 +67,12 @@ public class SecurityServiceConfig implements WebMvcConfigurer {
                         .requestMatchers("/error").permitAll()
 
                         // MICRO
+                        .requestMatchers(HttpMethod.POST, urlBase + "/exams").permitAll()
+                        .requestMatchers(HttpMethod.POST, urlBase + "/exams/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, urlBase + "/exams/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, urlBase + "/students").permitAll()
+                        .requestMatchers(HttpMethod.POST, urlBase + "/student-exams/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, urlBase + "/student-exams/**").permitAll()
                         .requestMatchers(HttpMethod.POST, urlBase).permitAll()
                 );
 

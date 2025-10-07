@@ -1,0 +1,339 @@
+---
+openapi: "3.0.1"
+info:
+  title: "exam-test"
+  description: "Microservicio para presentacion de examen por estudiante"
+  termsOfService: "https://github.com/bjcontreras/exam-test"
+  contact:
+    name: "Breiner Javier Contreras Romero"
+    url: "https://github.com/bjcontreras/exam-test"
+  license:
+    name: "MIT License"
+    url: "https://github.com/bjcontreras/exam-test"
+  version: "1.0"
+servers:
+- url: "http://localhost:8080"
+  description: "Microservicio para presentacion de examen por estudiante"
+paths:
+  /jav-bre/exam-test/students:
+    post:
+      tags:
+      - "student-controller"
+      operationId: "createStudent"
+      parameters:
+      - name: "msgtype"
+        in: "header"
+        description: "Tipo de mensaje"
+        required: false
+        schema:
+          type: "string"
+        example: "Request"
+      - name: "timestamp"
+        in: "header"
+        description: "Marca de tiempo de la solicitud"
+        required: false
+        schema:
+          type: "string"
+        example: "2025-10-07T14:47:18.079-05:00"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StudentCreateRequest"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+      security:
+      - Authorization: []
+  /jav-bre/exam-test/student-exams/{studentExamId}/grade:
+    post:
+      tags:
+      - "student-exam-controller"
+      operationId: "grade"
+      parameters:
+      - name: "studentExamId"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int64"
+      - name: "msgtype"
+        in: "header"
+        description: "Tipo de mensaje"
+        required: false
+        schema:
+          type: "string"
+        example: "Request"
+      - name: "timestamp"
+        in: "header"
+        description: "Marca de tiempo de la solicitud"
+        required: false
+        schema:
+          type: "string"
+        example: "2025-10-07T14:47:18.092-05:00"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/GradeResponse"
+      security:
+      - Authorization: []
+  /jav-bre/exam-test/student-exams/{studentExamId}/answers:
+    post:
+      tags:
+      - "student-exam-controller"
+      operationId: "submitAnswers"
+      parameters:
+      - name: "studentExamId"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int64"
+      - name: "msgtype"
+        in: "header"
+        description: "Tipo de mensaje"
+        required: false
+        schema:
+          type: "string"
+        example: "Request"
+      - name: "timestamp"
+        in: "header"
+        description: "Marca de tiempo de la solicitud"
+        required: false
+        schema:
+          type: "string"
+        example: "2025-10-07T14:47:18.12-05:00"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SubmitAnswersRequest"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+      security:
+      - Authorization: []
+  /jav-bre/exam-test/exams:
+    post:
+      tags:
+      - "exam-controller"
+      operationId: "createExam"
+      parameters:
+      - name: "msgtype"
+        in: "header"
+        description: "Tipo de mensaje"
+        required: false
+        schema:
+          type: "string"
+        example: "Request"
+      - name: "timestamp"
+        in: "header"
+        description: "Marca de tiempo de la solicitud"
+        required: false
+        schema:
+          type: "string"
+        example: "2025-10-07T14:47:18.146-05:00"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExamCreateRequest"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+      security:
+      - Authorization: []
+  /jav-bre/exam-test/exams/{examId}/assign:
+    post:
+      tags:
+      - "assignment-controller"
+      operationId: "assignExam"
+      parameters:
+      - name: "examId"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int64"
+      - name: "msgtype"
+        in: "header"
+        description: "Tipo de mensaje"
+        required: false
+        schema:
+          type: "string"
+        example: "Request"
+      - name: "timestamp"
+        in: "header"
+        description: "Marca de tiempo de la solicitud"
+        required: false
+        schema:
+          type: "string"
+        example: "2025-10-07T14:47:18.151-05:00"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AssignRequest"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  type: "integer"
+                  format: "int64"
+      security:
+      - Authorization: []
+  /jav-bre/exam-test/exams/student-exams/{studentExamId}:
+    get:
+      tags:
+      - "assignment-controller"
+      operationId: "getStudentExamView"
+      parameters:
+      - name: "studentExamId"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int64"
+      - name: "msgtype"
+        in: "header"
+        description: "Tipo de mensaje"
+        required: false
+        schema:
+          type: "string"
+        example: "Request"
+      - name: "timestamp"
+        in: "header"
+        description: "Marca de tiempo de la solicitud"
+        required: false
+        schema:
+          type: "string"
+        example: "2025-10-07T14:47:18.16-05:00"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/StudentExamView"
+      security:
+      - Authorization: []
+components:
+  schemas:
+    StudentCreateRequest:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        age:
+          type: "integer"
+          format: "int32"
+        city:
+          type: "string"
+        timezone:
+          type: "string"
+    GradeResponse:
+      type: "object"
+      properties:
+        totalScore:
+          type: "number"
+        gradedAt:
+          type: "string"
+    AnswerDto:
+      type: "object"
+      properties:
+        questionId:
+          type: "integer"
+          format: "int64"
+        chosenOptionId:
+          type: "integer"
+          format: "int64"
+    SubmitAnswersRequest:
+      type: "object"
+      properties:
+        answers:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/AnswerDto"
+    ExamCreateRequest:
+      type: "object"
+      properties:
+        title:
+          type: "string"
+        description:
+          type: "string"
+        presentationLocal:
+          type: "string"
+        presentationTz:
+          type: "string"
+        questions:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/QuestionDto"
+    OptionDto:
+      type: "object"
+      properties:
+        text:
+          type: "string"
+        isCorrect:
+          type: "boolean"
+    QuestionDto:
+      type: "object"
+      properties:
+        text:
+          type: "string"
+        score:
+          type: "number"
+        position:
+          type: "integer"
+          format: "int32"
+        options:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/OptionDto"
+    AssignRequest:
+      type: "object"
+      properties:
+        studentIds:
+          type: "array"
+          items:
+            type: "integer"
+            format: "int64"
+    StudentExamView:
+      type: "object"
+      properties:
+        studentExamId:
+          type: "integer"
+          format: "int64"
+        examId:
+          type: "integer"
+          format: "int64"
+        examTitle:
+          type: "string"
+        presentationLocal:
+          type: "string"
+        presentationTz:
+          type: "string"
+  securitySchemes:
+    Authorization:
+      type: "http"
+      scheme: "bearer"
+      bearerFormat: "JWT"

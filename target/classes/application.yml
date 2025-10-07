@@ -21,10 +21,14 @@ springdoc:
   swagger-ui:
     use-root-path: true
   properties:
-    developer-name: 'JavBre Tech'
+    developer-name: 'Breiner Javier Contreras Romero'
+    organization-url: 'https://github.com/bjcontreras/exam-test'
+    project-licence-link: 'https://github.com/bjcontreras/exam-test'
+    project-licence-msg: 'https://github.com/bjcontreras/exam-test'
     project-name: exam-test
     project-short-description: Microservicio para presentacion de examen por estudiante
-    organization-url: https://github.com/bjcontreras/exam-test
+    project-tos-link: 'https://github.com/bjcontreras/exam-test'
+    project-tos-msg: 'https://github.com/bjcontreras/exam-test'
   openapi:
     dev-url: ${spring.protocol}://${springdoc.server.address}:${springdoc.server.port}
 
